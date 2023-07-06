@@ -1,0 +1,3 @@
+type UseDisclosureProps = {
+  initialValue: boolean;
+};

@@ -1,0 +1,15 @@
+.popover {
+  --x: 900px;
+  --y: 900px;
+
+  bottom: calc(var(--y) + 24px);
+  left: calc(var(--x) - 32px);
+  opacity: 0;
+  @apply absolute h-24 w-24 bg-gray-900/30 rounded-md;
+  transition: opacity 0.3s;
+}
+
+.popoverActive {
+  opacity: 1;
+  transition: unset;
+}

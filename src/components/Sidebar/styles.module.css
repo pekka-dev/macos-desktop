@@ -1,0 +1,18 @@
+.aside {
+  position: absolute;
+  box-sizing: border-box;
+  inset: 0 calc(-420px - 10%) 0 auto;
+  width: 420px;
+  margin: 0.5rem;
+  border-radius: 0.5rem;
+  box-shadow:
+    0px 8px 8px -4px rgba(16, 24, 40, 0.03),
+    0px 20px 24px -4px rgba(16, 24, 40, 0.08);
+  background: white;
+  transition: inset 0.4s;
+  z-index: 100;
+}
+
+.asideVisible {
+  inset: 0 0 0 auto;
+}
