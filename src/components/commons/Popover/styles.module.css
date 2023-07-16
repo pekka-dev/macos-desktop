@@ -2,14 +2,32 @@
   --x: 900px;
   --y: 900px;
 
-  bottom: calc(var(--y) + 24px);
-  left: calc(var(--x) - 32px);
+  bottom: calc(var(--y) + 16px);
+  left: calc(var(--x) - 24px);
   opacity: 0;
   @apply absolute h-24 w-24 bg-gray-900/30 rounded-md;
-  transition: opacity 0.3s;
+  transition: opacity 0.2s;
+  z-index: var(--z-popover);
+}
+
+.popoverClosing {
+  animation: 0.2s linear forwards hide;
 }
 
 .popoverActive {
   opacity: 1;
-  transition: unset;
+  transition: none;
+}
+
+.popoverHide {
+  display: none;
+}
+
+@keyframes hide {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }

@@ -1,7 +1,7 @@
 import React, { MouseEventHandler, useState } from "react";
 import styles from "./styles.module.css";
 import Popover from "../commons/Popover";
-import useDisclosure from "../../hooks/useDisclosure";
+import useDisclosure from "hooks/useDisclosure";
 
 const Dock: React.FC = () => {
   const { isOpen, onClose, onOpen } = useDisclosure(false);
@@ -12,6 +12,7 @@ const Dock: React.FC = () => {
     event.preventDefault();
     const boundingClientRect = event.currentTarget.getBoundingClientRect();
     const mScreenHeight = window.innerHeight;
+
     setPopoverY(mScreenHeight - boundingClientRect.y);
     setPopoverX(event.screenX);
     onOpen();
