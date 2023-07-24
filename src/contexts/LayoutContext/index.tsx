@@ -1,3 +1,4 @@
+import useDisclosure from "hooks/useDisclosure";
 import { disconnect } from "process";
 import React, {
   createContext,
@@ -9,12 +10,17 @@ import React, {
 
 const LayoutContext = createContext<LayoutContextValue>({
   showSidebar: false,
-  setShowSidebar: (_) => _,
+  onShowSidebar: () => {},
+  onHideSidebar: () => {},
   getPortalContainer: () => document.createElement("div"),
 });
 
 const LayoutProvider: React.FC<LayoutProviderProps> = ({ children }) => {
-  const [showSidebar, setShowSidebar] = useState(false);
+  const {
+    isOpen: showSidebar,
+    onOpen: onShowSidebar,
+    onClose: onHideSidebar,
+  } = useDisclosure(false);
   const [portalContainer, setPortalContainer] = useState<HTMLDivElement | null>(
     null,
   );
@@ -32,7 +38,8 @@ const LayoutProvider: React.FC<LayoutProviderProps> = ({ children }) => {
     <LayoutContext.Provider
       value={{
         showSidebar,
-        setShowSidebar,
+        onShowSidebar,
+        onHideSidebar,
         getPortalContainer,
       }}
     >

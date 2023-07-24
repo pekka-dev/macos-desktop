@@ -1,0 +1,68 @@
+.popover {
+  --x: 900px;
+  --y: 900px;
+
+  position: absolute;
+  bottom: calc(var(--y) + 16px);
+  left: calc(var(--x) - 24px);
+  opacity: 0;
+  transition: opacity 0.2s;
+  z-index: var(--z-popover);
+}
+
+.popoverActive {
+  opacity: 1;
+  transition: none;
+}
+
+.popoverHide {
+  display: none;
+}
+
+.popoverContent {
+  @apply bg-gray-50/50 rounded-md ring-1 ring-gray-900/10 shadow-lg;
+}
+
+// .popoverArrow {
+//   $arrowConnectRadius: 8px;
+//   $sqrtOfTwo: 1.41421356237;
+//   $shadowOffset: calc($arrowConnectRadius);
+
+//   @apply absolute left-4 -bottom-2 border-solid border-b-0 border-r-8 border-r-transparent border-l-8 border-l-transparent border-t-8;
+
+//   .popoverArrowLeft,
+//   .popoverArrowRight {
+//     height: calc($arrowConnectRadius/$sqrtOfTwo);
+//     width: calc(((3 / $sqrtOfTwo) - 1) * $arrowConnectRadius);
+//     top: -8px;
+//     @apply absolute overflow-hidden;
+
+//     &::before {
+//       content: "";
+//       height: calc(2 * $arrowConnectRadius);
+//       @apply absolute block aspect-square rounded-[50%];
+//     }
+//   }
+
+//   .popoverArrowLeft {
+//     left: calc(-1 * ($sqrtOfTwo - 1) * $arrowConnectRadius - 8px);
+//     &::before {
+//       top: 0;
+//       right: calc(1 * (2 - (3 / $sqrtOfTwo)) * $arrowConnectRadius);
+//       box-shadow: $shadowOffset calc(-1 * $shadowOffset) 0 0 red;
+//     }
+//   }
+
+//   .popoverArrowRight {
+//     right: calc(-1 * ($sqrtOfTwo - 1) * $arrowConnectRadius - 8px);
+//     &::before {
+//       top: 0;
+//       left: calc(1 * (2 - (3 / $sqrtOfTwo)) * $arrowConnectRadius);
+//       box-shadow: calc(-1 * $shadowOffset) calc(-1 * $shadowOffset) 0 0 red;
+//     }
+//   }
+// }
+
+// .popoverArrow {
+//   background-image: path("M0,0 ");
+// }

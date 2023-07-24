@@ -1,11 +1,17 @@
-import React, { AnimationEventHandler, TransitionEventHandler, useEffect } from "react";
+import React, {
+  AnimationEventHandler,
+  TransitionEventHandler,
+  useCallback,
+  useEffect,
+} from "react";
 import { createPortal } from "react-dom";
 import clsx from "clsx";
 import useClickOutside from "hooks/useClickOutside";
-import styles from "./styles.module.css";
+import styles from "./styles.module.scss";
 import { useLayout } from "contexts/LayoutContext";
 
 const Popover: React.FC<PopoverProps> = ({
+  className,
   children,
   isOpen,
   onClose,
@@ -24,25 +30,29 @@ const Popover: React.FC<PopoverProps> = ({
   useEffect(() => {
     if (!popoverRef.current) return;
 
+    console.log({ x, y });
+
     popoverRef.current.style.setProperty("--x", `${x}px`);
     popoverRef.current.style.setProperty("--y", `${y}px`);
   }, [popoverRef, x, y]);
 
   const handleTransitionEnd: TransitionEventHandler = (event) => {
-    if (popoverRef.current)
+    if (popoverRef.current) {
       popoverRef.current.classList.add(styles.popoverHide);
+    }
     onClose();
   };
   return createPortal(
     <div
       ref={popoverRef}
-      className={clsx(
-        styles.popover,
-        isOpen && styles.popoverActive,
-      )}
+      className={clsx(styles.popover, isOpen && styles.popoverActive)}
       onTransitionEnd={handleTransitionEnd}
     >
-      {children}
+      <div className={styles.popoverArrow}>
+        <div className={styles.popoverArrowLeft} />
+        <div className={styles.popoverArrowRight} />
+      </div>
+      <div className={clsx(className, styles.popoverContent)}>{children}</div>
     </div>,
     getPortalContainer(),
   );

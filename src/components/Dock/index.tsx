@@ -1,9 +1,11 @@
-import React, { MouseEventHandler, useState } from "react";
+import React, { MouseEventHandler, useEffect, useState } from "react";
 import styles from "./styles.module.css";
 import Popover from "../commons/Popover";
 import useDisclosure from "hooks/useDisclosure";
+import { useLayout } from "contexts/LayoutContext";
 
 const Dock: React.FC = () => {
+  const { onShowSidebar } = useLayout();
   const { isOpen, onClose, onOpen } = useDisclosure(false);
   const [popoverX, setPopoverX] = useState(0);
   const [popoverY, setPopoverY] = useState(0);
@@ -12,11 +14,16 @@ const Dock: React.FC = () => {
     event.preventDefault();
     const boundingClientRect = event.currentTarget.getBoundingClientRect();
     const mScreenHeight = window.innerHeight;
+    console.log(event);
 
     setPopoverY(mScreenHeight - boundingClientRect.y);
-    setPopoverX(event.screenX);
+    setPopoverX(event.pageX > event.screenX ? event.screenX : event.pageX);
     onOpen();
   };
+
+  useEffect(() => {
+    console.log({ popoverX, popoverY });
+  }, [popoverX, popoverY]);
 
   return (
     <>
@@ -25,7 +32,11 @@ const Dock: React.FC = () => {
         onContextMenu={handleContextMenu}
       ></section>
       <Popover isOpen={isOpen} y={popoverY} x={popoverX} onClose={onClose}>
-        THis is popover
+        <div className={styles.dockPopoverMenu}>
+          <span className={styles.dockPopoverMenuItem} onClick={onShowSidebar}>
+            Dock settings...
+          </span>
+        </div>
       </Popover>
     </>
   );

@@ -5,12 +5,12 @@ import styles from "./styles.module.css";
 import useClickOutside from "hooks/useClickOutside";
 
 const Sidebar: React.FC = () => {
-  const { showSidebar, setShowSidebar } = useLayout();
+  const { showSidebar, onHideSidebar } = useLayout();
   const ref = useClickOutside({
     callback: (e) => {
       if (!showSidebar) return;
       e.stopPropagation();
-      setShowSidebar(false);
+      onHideSidebar();
     },
   });
 

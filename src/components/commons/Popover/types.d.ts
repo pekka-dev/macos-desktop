@@ -1,4 +1,5 @@
 type PopoverProps = {
+  className?: string;
   isOpen: boolean;
   children: React.ReactNode;
   y: number;

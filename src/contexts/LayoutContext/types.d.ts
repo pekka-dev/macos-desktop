@@ -1,6 +1,7 @@
 type LayoutContextValue = {
   showSidebar: boolean;
-  setShowSidebar: React.Dispatch<React.SetStateAction<boolean>>;
+  onShowSidebar: () => void;
+  onHideSidebar: () => void;
   getPortalContainer: () => HTMLDivElement;
 };
 
