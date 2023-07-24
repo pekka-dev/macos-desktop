@@ -1,8 +1,8 @@
-import React, { MouseEventHandler, useEffect, useState } from "react";
-import styles from "./styles.module.css";
-import Popover from "../commons/Popover";
-import useDisclosure from "hooks/useDisclosure";
 import { useLayout } from "contexts/LayoutContext";
+import useDisclosure from "hooks/useDisclosure";
+import React, { MouseEventHandler, useEffect, useState } from "react";
+import Popover from "../commons/Popover";
+import styles from "./styles.module.css";
 
 const Dock: React.FC = () => {
   const { onShowSidebar } = useLayout();

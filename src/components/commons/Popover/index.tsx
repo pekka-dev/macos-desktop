@@ -1,14 +1,12 @@
+import clsx from "clsx";
+import { useLayout } from "contexts/LayoutContext";
+import useClickOutside from "hooks/useClickOutside";
 import React, {
-  AnimationEventHandler,
   TransitionEventHandler,
-  useCallback,
-  useEffect,
+  useEffect
 } from "react";
 import { createPortal } from "react-dom";
-import clsx from "clsx";
-import useClickOutside from "hooks/useClickOutside";
 import styles from "./styles.module.scss";
-import { useLayout } from "contexts/LayoutContext";
 
 const Popover: React.FC<PopoverProps> = ({
   className,

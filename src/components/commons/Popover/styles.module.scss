@@ -20,7 +20,7 @@
 }
 
 .popoverContent {
-  @apply bg-gray-50/50 rounded-md ring-1 ring-gray-900/10 shadow-lg;
+  @apply bg-gray-50/50 backdrop-blur-sm rounded-md ring-1 ring-gray-900/10 shadow-lg;
 }
 
 // .popoverArrow {
