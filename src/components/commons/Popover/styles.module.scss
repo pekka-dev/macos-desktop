@@ -4,7 +4,8 @@
 
   position: absolute;
   bottom: calc(var(--y) + 16px);
-  left: calc(var(--x) - 24px);
+  left: calc(var(--x));
+  transform: translateX(-50%);
   opacity: 0;
   transition: opacity 0.2s;
   z-index: var(--z-popover);
@@ -20,7 +21,7 @@
 }
 
 .popoverContent {
-  @apply bg-gray-50/50 backdrop-blur-sm rounded-md ring-1 ring-gray-900/10 shadow-lg;
+  @apply bg-gray-50/70 backdrop-blur-sm rounded-lg ring-1 ring-gray-900/10 shadow-lg;
 }
 
 // .popoverArrow {

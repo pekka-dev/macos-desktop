@@ -1,9 +1,7 @@
-import React from "react";
 import "./App.css";
+import Dock from "./components/Dock";
 import Layout from "./components/Layout";
 import Sidebar from "./components/Sidebar";
-import { useLayout } from "./contexts/LayoutContext";
-import Dock from "./components/Dock";
 
 function App() {
   return (

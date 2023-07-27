@@ -1,7 +1,7 @@
-import React from "react";
 import clsx from "clsx";
-import styles from "./styles.module.css";
 import { useLayout } from "contexts/LayoutContext";
+import React from "react";
+import styles from "./styles.module.css";
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const { showSidebar } = useLayout();

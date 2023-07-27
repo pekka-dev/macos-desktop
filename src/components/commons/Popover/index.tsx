@@ -1,10 +1,7 @@
 import clsx from "clsx";
 import { useLayout } from "contexts/LayoutContext";
 import useClickOutside from "hooks/useClickOutside";
-import React, {
-  TransitionEventHandler,
-  useEffect
-} from "react";
+import React, { TransitionEventHandler, useEffect } from "react";
 import { createPortal } from "react-dom";
 import styles from "./styles.module.scss";
 

@@ -1,8 +1,8 @@
-import React from "react";
-import { useLayout } from "contexts/LayoutContext";
 import clsx from "clsx";
-import styles from "./styles.module.css";
+import { useLayout } from "contexts/LayoutContext";
 import useClickOutside from "hooks/useClickOutside";
+import React from "react";
+import styles from "./styles.module.css";
 
 const Sidebar: React.FC = () => {
   const { showSidebar, onHideSidebar } = useLayout();
