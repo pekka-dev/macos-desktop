@@ -24,9 +24,6 @@ const Popover: React.FC<PopoverProps> = ({
 
   useEffect(() => {
     if (!popoverRef.current) return;
-
-    console.log({ x, y });
-
     popoverRef.current.style.setProperty("--x", `${x}px`);
     popoverRef.current.style.setProperty("--y", `${y}px`);
   }, [popoverRef, x, y]);

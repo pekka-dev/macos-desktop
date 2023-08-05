@@ -20,6 +20,18 @@ code {
     monospace;
 }
 
-.portal-container {
+#root {
+  text-align: center;
+  background-image: linear-gradient(to top, #c471f5 0%, #fa71cd 100%);
   overflow: hidden;
+  position: relative;
+}
+
+
+.portal-container {
+  position: absolute;
+}
+
+.application-container {
+  position: absolute;
 }

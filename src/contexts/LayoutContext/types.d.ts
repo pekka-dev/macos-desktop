@@ -3,8 +3,7 @@ type LayoutContextValue = {
   onShowSidebar: () => void;
   onHideSidebar: () => void;
   getPortalContainer: () => HTMLDivElement;
+  addNodeToDock: (node: React.ReactElement, name: string) => void
 };
 
-type LayoutProviderProps = {
-  children: React.ReactNode;
-};
+type DockItems = Record<Application["name"], Application["icon"]>

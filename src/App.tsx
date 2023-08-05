@@ -1,16 +1,24 @@
+import clsx from "clsx";
+import AppProvider from "contexts/AppContext";
+import { useLayout } from "contexts/LayoutContext";
 import "./App.css";
-import Dock from "./components/Dock";
-import Layout from "./components/Layout";
-import Sidebar from "./components/Sidebar";
+import Application from "components/Application";
+import { AppWindow } from "@phosphor-icons/react";
 
 function App() {
   return (
-    <div className="App">
-      <Sidebar />
-      <Layout>
-        <Dock />
-      </Layout>
-    </div>
+    <AppProvider>
+      <Application
+        icon={<AppWindow size={48} color="#4f7a27" weight="fill" />}
+        element={<section className="sample-application">this</section>}
+        name="sample-app"
+      />
+      <Application
+        icon={<AppWindow size={48} color="#ef7a27" weight="fill" />}
+        element={<section className="sample-application">this</section>}
+        name="sample-app-1"
+      />
+    </AppProvider>
   );
 }
 

@@ -4,7 +4,7 @@ import React, { MouseEventHandler, useEffect, useState } from "react";
 import Popover from "../commons/Popover";
 import styles from "./styles.module.css";
 
-const Dock: React.FC = () => {
+const Dock = React.forwardRef<HTMLDivElement, DockProps>(({ children} , ref) => {
   const { onShowSidebar } = useLayout();
   const { isOpen, onClose, onOpen } = useDisclosure(false);
   const [popoverX, setPopoverX] = useState(0);
@@ -14,23 +14,17 @@ const Dock: React.FC = () => {
     event.preventDefault();
     const boundingClientRect = event.currentTarget.getBoundingClientRect();
     const mScreenHeight = window.innerHeight;
-    console.log(event);
 
     setPopoverY(mScreenHeight - boundingClientRect.y);
     setPopoverX(event.pageX > event.screenX ? event.screenX : event.pageX);
     onOpen();
   };
 
-  useEffect(() => {
-    console.log({ popoverX, popoverY });
-  }, [popoverX, popoverY]);
-
   return (
     <>
-      <section
-        className={styles.dock}
-        onContextMenu={handleContextMenu}
-      ></section>
+      <section ref={ref} className={styles.dock} onContextMenu={handleContextMenu}>
+        {children}
+      </section>
       <Popover isOpen={isOpen} y={popoverY} x={popoverX} onClose={onClose}>
         <div className={styles.dockPopoverMenu}>
           <span className={styles.dockPopoverMenuItem} onClick={onShowSidebar}>
@@ -40,6 +34,6 @@ const Dock: React.FC = () => {
       </Popover>
     </>
   );
-};
+});
 
 export default Dock;
